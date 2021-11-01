@@ -1,20 +1,32 @@
-#test_variable = "glob prok gold"
-#test_variable = test_variable.lower()
 
 class Converter:
-
+    
     def __init__(self, intergalactic_currency):
         self.intergalactic_currency = intergalactic_currency
+        self.input_text = False
+        self.currency_list = self.intergalactic_currency
+        self.currency_list = self.currency_list.split(" ")
+        
+    def check_for_valid_input(self):
+        valid_input = ["gold", "silver", "iron", "glob", "prok", "pish", "tegj"]
+        if set(self.currency_list).issubset(valid_input):
+            self.currency_list = " ".join(self.currency_list)
+            self.input_text = True
+            return self.input_text, self.input_text
 
     def check_for_credit(self):
-        currency_list = self.intergalactic_currency
-        currency_list = currency_list.split(" ")
         metals = ["gold", "silver", "iron"]
-        if any(i in currency_list for i in metals):
-            currency_list = " ".join(currency_list) + " Credit"
-        else:
-            currency_list = " ".join(currency_list)
-        return currency_list
+        if self.input_text:
+            if any(i in self.currency_list for i in metals):
+                self.currency_list = "".join(self.currency_list) + " Credit"
+            else:
+                self.currency_list = "".join(self.currency_list)
+        return self.currency_list
 
-#intercalactig_convertion = Converter(test_variable)
-#print(intercalactig_convertion.check_for_credit())
+    def output(self):
+        self.check_for_valid_input()
+        self.check_for_credit()
+        if self.input_text:
+            return self.currency_list
+        else:
+            return "No idea what you are talking about!"
