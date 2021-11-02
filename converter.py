@@ -1,3 +1,4 @@
+from convert import *
 
 class Converter:
     
@@ -23,10 +24,11 @@ class Converter:
                 self.currency_list = "".join(self.currency_list)
         return self.currency_list
 
+
     def output(self):
         self.check_for_valid_input()
         self.check_for_credit()
         if self.input_text:
-            return self.currency_list
+            return convert_currency(self.currency_list)
         else:
             return "No idea what you are talking about!"
