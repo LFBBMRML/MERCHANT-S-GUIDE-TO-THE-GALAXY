@@ -30,9 +30,9 @@ forbidden_order = ["IIII", "XXXX", "CCCC", "MMMM", "DD", "LL", "VV"]
 forbidden_sub = ["IL", "IC", "ID", "IM", "VL", "VC", "VD", "VM", "XD", "XM", "LD", "LM", "DM"]
 
 
-def galaxy_in_list(galaxy_string):
-    galaxy_list = galaxy_string.split(" ")
-    return galaxy_list
+#def galaxy_in_list(galaxy_string):
+ #   galaxy_list = galaxy_string.split(" ")
+  #  return galaxy_list
 
 
 def split_the_list(galaxy_list):
@@ -115,8 +115,8 @@ def arabic_value_total(value_sum, metal_product):
 
 
 def convert_currency(galaxy_string):
-    galaxy_list = galaxy_in_list(galaxy_string)
-    galaxy_currency_list, metal_list = split_the_list(galaxy_list)
+    #galaxy_list = galaxy_in_list(galaxy_string)
+    galaxy_currency_list, metal_list = split_the_list(galaxy_string)
     metal_value = metal_in_value(metal_list)
     roman_list = galaxy_in_roman(galaxy_currency_list)   
     roman_list = check_order(roman_list)
