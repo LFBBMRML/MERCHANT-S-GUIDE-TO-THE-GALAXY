@@ -123,5 +123,5 @@ def convert_currency(galaxy_string):
     value = arabic_value_total(value_sum, product)
     return value
 
-#var = "glob glob silver"
-#print(convert_currency(var))
+if __name__ == "__main__":
+    print("Please run GUI.py")

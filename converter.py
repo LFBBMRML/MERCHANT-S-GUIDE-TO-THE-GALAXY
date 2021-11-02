@@ -36,3 +36,6 @@ class Converter:
             return convert_currency(self.currency_list)
         else:
             return "No idea what you are talking about!"
+
+if __name__ == "__main__":
+    print("Please run GUI.py")
