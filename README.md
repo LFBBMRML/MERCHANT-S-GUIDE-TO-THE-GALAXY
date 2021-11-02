@@ -2,11 +2,17 @@
 Test Framework: pytest. 
 
 Test Input        ->    Test Output:
-pish tegj glob glob     42 
-glob prok Silver        68 Credits 
-glob prok Gold          57800 Credits  
-glob prok Iron          782 Credits  
-glob glob glob glob     invalid Value!
+
+pish tegj glob glob   ->  42 
+
+glob prok Silver      ->  68 Credits 
+
+glob prok Gold        ->  57800 Credits  
+
+glob prok Iron        ->  782 Credits  
+
+glob glob glob glob   ->  invalid Value!
+
 how much wood coulda woodchuck chuck if a woodchuck could chuck wood ?  ->  No idea what you are talking about
 
 Main script: GUI.py
