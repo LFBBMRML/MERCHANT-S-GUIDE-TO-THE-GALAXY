@@ -29,9 +29,11 @@ metal_value = {
 forbidden_order = ["IIII", "XXXX", "CCCC", "MMMM", "DD", "LL", "VV"]
 forbidden_sub = ["IL", "IC", "ID", "IM", "VL", "VC", "VD", "VM", "XD", "XM", "LD", "LM", "DM"]
 
+
 def galaxy_in_list(galaxy_string):
     galaxy_list = galaxy_string.split(" ")
     return galaxy_list
+
 
 def split_the_list(galaxy_list):
     liste_galaxy_currency = []
@@ -43,6 +45,7 @@ def split_the_list(galaxy_list):
             liste_galaxy_currency.append(i)
     return liste_galaxy_currency, liste_metal
 
+
 def metal_in_value(metals_list):
     metal_list = []
     if not metals_list:
@@ -53,13 +56,11 @@ def metal_in_value(metals_list):
     return metal_list
 
 
-
 def galaxy_in_roman(galaxy_list):
     roman_list = []
     for i in galaxy_list:
         roman_list.append(galaxy_currency.get(i))
     return roman_list
-
 
 
 def check_order(roman_string):
@@ -70,7 +71,6 @@ def check_order(roman_string):
         return "invalid Value!"
     else:
         return roman_string
-
 
 
 def roman_in_arabic(roman_numeral):
@@ -100,9 +100,11 @@ def sum_arabic_value(arabic_list):
     value_sum = sum(arabic_list)
     return value_sum
 
+
 def product_arabic_value(metal_list):
     product = reduce((lambda x, y: x*y), metal_list)
     return product
+
 
 def arabic_value_total(value_sum, metal_product):
     value = value_sum * metal_product
@@ -115,13 +117,17 @@ def convert_currency(galaxy_string):
     metal_value = metal_in_value(metal_list)
     roman_list = galaxy_in_roman(galaxy_currency_list)   
     roman_list = check_order(roman_list)
-    arabic_list = roman_in_arabic(roman_list)
-    subtract_arabic_list, indices = subtract(arabic_list)
-    new_arabic_list = list_to_sum_up(subtract_arabic_list, indices)
-    value_sum = sum_arabic_value(new_arabic_list)
-    product = product_arabic_value(metal_value)
-    value = arabic_value_total(value_sum, product)
-    return value
+    if roman_list == "invalid Value!":
+        return "invalid Value!"
+    else:
+        arabic_list = roman_in_arabic(roman_list)
+        subtract_arabic_list, indices = subtract(arabic_list)
+        new_arabic_list = list_to_sum_up(subtract_arabic_list, indices)
+        value_sum = sum_arabic_value(new_arabic_list)
+        product = product_arabic_value(metal_value)
+        value = arabic_value_total(value_sum, product)
+        return value
+
 
 if __name__ == "__main__":
     print("Please run GUI.py")
