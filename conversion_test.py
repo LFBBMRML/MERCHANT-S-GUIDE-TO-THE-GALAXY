@@ -1,13 +1,10 @@
 import convert
+import converter
 
 def test_check_order():
     assert convert.check_order("MMVVI") == "invalid Value!"
     assert convert.check_order("MCMXVLIV") == "invalid Value!"
     assert convert.check_order("MCMXLIV") == "MCMXLIV"
-
-
-def test_galaxy_in_list():
-    assert convert.galaxy_in_list("glob glob") == ["glob", "glob"]
 
 
 def test_split_the_list():
@@ -54,3 +51,17 @@ def test_sum_arabic_value():
 def test_convert_currency():
     assert convert.convert_currency("glob glob") == 2
     assert convert.convert_currency("pish tegj glob glob") == 42
+
+
+def test_output():
+    c1 = converter.Converter("pish tegj glob glob")
+    assert c1.output() == "42"
+
+    c2 = converter.Converter("glob prok Silver".lower())
+    assert c2.output() == "68 Credits"
+
+    c3 = converter.Converter("glob prok Gold".lower())
+    assert c3.output() == "57800 Credits"
+
+    c4 = converter.Converter("glob prok Iron".lower())
+    assert c4.output() == "782.0 Credits"
