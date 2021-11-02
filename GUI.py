@@ -7,7 +7,7 @@ from converter import Converter
 def updated_output():
     intergalactic_transactions = Converter(user_input.get().lower())
     #print(intergalactic_transactions.check_for_credit())
-    output_text.set(intergalactic_transactions.check_for_credit())
+    output_text.set(intergalactic_transactions.output())
 
 
 fenster = tkinter.Tk()
