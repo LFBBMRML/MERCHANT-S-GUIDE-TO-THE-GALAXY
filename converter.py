@@ -5,6 +5,7 @@ class Converter:
     def __init__(self, intergalactic_currency):
         self.intergalactic_currency = intergalactic_currency
         self.input_text = False
+        self.input_text_with_metal = False
         self.currency_list = self.intergalactic_currency
         self.currency_list = self.currency_list.split(" ")
         
@@ -20,6 +21,7 @@ class Converter:
         if self.input_text:
             if any(i in self.currency_list for i in metals):
                 self.currency_list = "".join(self.currency_list) + " Credit"
+                self.input_text_with_metal = True
             else:
                 self.currency_list = "".join(self.currency_list)
         return self.currency_list
@@ -28,7 +30,9 @@ class Converter:
     def output(self):
         self.check_for_valid_input()
         self.check_for_credit()
-        if self.input_text:
+        if self.input_text and self.input_text_with_metal:
+            return str(convert_currency(self.currency_list)) + " Credit"
+        elif self.input_text and not self.input_text_with_metal:
             return convert_currency(self.currency_list)
         else:
             return "No idea what you are talking about!"
