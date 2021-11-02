@@ -19,6 +19,7 @@ how much wood coulda woodchuck chuck if a woodchuck could chuck wood ?  ->  No i
 Main script: GUI.py
 
 GUI.py imports converter.py
+
 converter.py imports convert.py
 
 converter.py contains Converter class. It is called by GUI.py. The class checks whether the input is galaxy currency or not. If it is galactic currency it calls convert.py. The class returns the converted currency.
