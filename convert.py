@@ -21,11 +21,9 @@ forbidden_sub = ["IL", "IC", "ID", "IM", "VL", "VC", "VD", "VM", "XD", "XM", "LD
 
 def check_order(roman_string):
     if any(i in roman_string for i in forbidden_order):
-        info = "invalid Value!"
-        return info
+        return "invalid Value!"
     elif any(i in roman_string for i in forbidden_sub):
-        info = "invalid Value!"
-        return info
+        return "invalid Value!"
     else:
         return roman_string
 
