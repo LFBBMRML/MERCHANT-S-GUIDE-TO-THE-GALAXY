@@ -98,7 +98,10 @@ def list_to_sum_up(arabic_list, indices):
 
 def sum_arabic_value(arabic_list):
     value_sum = sum(arabic_list)
-    return value_sum
+    if value_sum != 0:
+        return value_sum
+    else:
+        return 1
 
 
 def product_arabic_value(metal_list):
